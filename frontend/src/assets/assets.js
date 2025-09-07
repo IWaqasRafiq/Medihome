@@ -87,9 +87,8 @@ export const specialityData = [
 
 export const doctors = [
     {
-        _id: 'doc1',
         name: 'Dr. Richard James',
-        image: doc1,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233011/doc1_wpf7jw.png',
         speciality: 'General physician',
         degree: 'MBBS',
         experience: '4 Years',
@@ -101,9 +100,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc2',
         name: 'Dr. Emily Larson',
-        image: doc2,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233011/doc2_htlt2u.png',
         speciality: 'Gynecologist',
         degree: 'MBBS',
         experience: '3 Years',
@@ -115,9 +113,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc3',
         name: 'Dr. Sarah Patel',
-        image: doc3,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233011/doc3_tjfc44.png',
         speciality: 'Dermatologist',
         degree: 'MBBS',
         experience: '1 Years',
@@ -129,9 +126,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc4',
         name: 'Dr. Christopher Lee',
-        image: doc4,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233011/doc4_f4e5ch.png',
         speciality: 'Pediatricians',
         degree: 'MBBS',
         experience: '2 Years',
@@ -143,9 +139,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc5',
         name: 'Dr. Jennifer Garcia',
-        image: doc5,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233011/doc5_kgtyyd.png',
         speciality: 'Neurologist',
         degree: 'MBBS',
         experience: '4 Years',
@@ -157,9 +152,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc6',
         name: 'Dr. Andrew Williams',
-        image: doc6,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233012/doc6_k2uxgc.png',
         speciality: 'Neurologist',
         degree: 'MBBS',
         experience: '4 Years',
@@ -171,9 +165,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc7',
         name: 'Dr. Christopher Davis',
-        image: doc7,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233012/doc7_y3lskn.png',
         speciality: 'General physician',
         degree: 'MBBS',
         experience: '4 Years',
@@ -185,9 +178,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc8',
         name: 'Dr. Timothy White',
-        image: doc8,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233012/doc8_wt7mvw.png',
         speciality: 'Gynecologist',
         degree: 'MBBS',
         experience: '3 Years',
@@ -199,9 +191,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc9',
         name: 'Dr. Ava Mitchell',
-        image: doc9,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233012/doc9_sldciv.png',
         speciality: 'Dermatologist',
         degree: 'MBBS',
         experience: '1 Years',
@@ -213,9 +204,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc10',
         name: 'Dr. Jeffrey King',
-        image: doc10,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233015/doc10_qmbq1m.png',
         speciality: 'Pediatricians',
         degree: 'MBBS',
         experience: '2 Years',
@@ -227,9 +217,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc11',
         name: 'Dr. Zoe Kelly',
-        image: doc11,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233016/doc11_rwdj1m.png',
         speciality: 'Gastroenterologist',
         degree: 'MBBS',
         experience: '4 Years',
@@ -241,9 +230,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc12',
         name: 'Dr. Patrick Harris',
-        image: doc12,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233017/doc12_b6s4u9.png',
         speciality: 'Neurologist',
         degree: 'MBBS',
         experience: '4 Years',
@@ -255,9 +243,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc13',
         name: 'Dr. Chloe Evans',
-        image: doc13,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233018/doc13_do6hmu.png',
         speciality: 'General physician',
         degree: 'MBBS',
         experience: '4 Years',
@@ -269,9 +256,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc14',
         name: 'Dr. Ryan Martinez',
-        image: doc14,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233020/doc14_ujxq5g.png',
         speciality: 'Gynecologist',
         degree: 'MBBS',
         experience: '3 Years',
@@ -283,9 +269,8 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc15',
         name: 'Dr. Amelia Hill',
-        image: doc15,
+        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233020/doc15_pyk2hn.png',
         speciality: 'Dermatologist',
         degree: 'MBBS',
         experience: '1 Years',

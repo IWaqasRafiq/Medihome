@@ -83,11 +83,11 @@ const addDoctor = async (req, res) => {
     await newDoctor.save();
     res
       .status(201)
-      .json({ message: "Doctor added successfully", doctor: newDoctor });
+      .json({success: true, message: "Doctor added successfully admin Controller", doctor: newDoctor });
   } catch (error) {
     console.log(error);
 
-    res.status(500).json({ message: "Error adding doctor", error });
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
@@ -110,16 +110,7 @@ const loginAdmin = async (req, res) => {
     } else {
       res.status(401).json({ success: false, message: "Invalid credentials" });
     }
-    // const admin = await adminModel.findOne({ email });
-    // if (!admin) {
-    //   return res.status(404).json({ success: false, message: "Admin not found" });
-    // }
-
-    // const isMatch = await bcrypt.compare(password, admin.password);
-    // if (!isMatch) {
-    //   return res.status(401).json({ success: false, message: "Invalid credentials" });
-    // }
-
+    
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Server error", error });

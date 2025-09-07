@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../../assets/assets'
+import { toast } from 'react-toastify';
+import { AdminContext } from '../../context/AdminContext';
+import axios from 'axios';
 
 const AddDoctor = () => {
 
@@ -12,19 +15,68 @@ const AddDoctor = () => {
     const [speciality, setSpeciality] = useState('general Physician');
     const [fees, setFees] = useState('');
     const [about, setAbout] = useState('');
-    const [education, setEducation] = useState('');
     const [address1, setAddress1] = useState('');
     const [address2, setAddress2] = useState('');
 
+    const { adminToken, backendUrl } = useContext(AdminContext)
+
+    const onSubmitHandler = async (event) => {
+        event.preventDefault();
+        try {
+
+            if (!docImage) {
+                return toast.error('Please upload doctor image');
+            }
+
+            const formData = new FormData();
+
+            formData.append('image', docImage);
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('password', password);
+            formData.append('experience', experience);
+            formData.append('degree', degree);
+            formData.append('speciality', speciality);
+            formData.append('fees', Number(fees));
+            formData.append('about', about);
+            formData.append('address', JSON.stringify({ line1: address1, line2: address2 }));
+
+            formData.forEach((value, key) => {
+                console.log(key, value);
+            });
+
+            const { data } = await axios.post(backendUrl + '/api/admin/add-doctor', formData, {
+                headers: { token: adminToken }
+            });
+
+            if (data.success) {
+                toast.success('Doctor added successfully');
+                setDocImage(false);
+                setName('');
+                setEmail('');
+                setPassword('');
+                setDegree('');
+                setFees('');
+                setAbout('');
+                setAddress1('');
+                setAddress2('');
+            } else {
+                toast.error(data.message);
+            }
+        } catch (error) {
+            toast.error(error.message);
+        }
+    }
+
     return (
-        <form className='overflow-x-scroll scroll-smooth'>
+        <form onSubmit={onSubmitHandler} className='overflow-x-scroll scroll-smooth'>
             <p className='mt-3 sm:mt-6 mx-4 sm:mx-8  text-xl font-semibold'>Add Doctor</p>
             <div className='flex flex-col  bg-white my-4 sm:my-8 mx-4 sm:mx-8 p-8'>
                 <div className='flex items-center gap-4 mb-8'>
                     <label htmlFor='doctor_image'>
                         <img src={docImage ? URL.createObjectURL(docImage) : assets.upload_area} alt="" className='cursor-pointer bg-gray-100 w-20 rounded-full border border-gray-200' />
                     </label>
-                    <input onChange={(e)=> setDocImage(e.target.files[0])} type="file" id="doctor_image" hidden />
+                    <input onChange={(e) => setDocImage(e.target.files[0])} type="file" id="doctor_image" hidden />
                     <p className='font-mono text-gray-600'>Upload Doctor <br /> Profile</p>
                 </div>
                 <div>
@@ -59,7 +111,7 @@ const AddDoctor = () => {
                                     type="password"
                                     name="password"
                                     value={password}
-                                    onChange={(e)=> setPassword(e.target.value)}
+                                    onChange={(e) => setPassword(e.target.value)}
                                     placeholder="Password"
                                     className="w-full border rounded-md px-3 py-2 text-sm outline-none"
                                 />
@@ -68,8 +120,8 @@ const AddDoctor = () => {
                                 <label className="block text-md text-gray-500 font-medium mb-1">Experience</label>
                                 <select
                                     name="experience"
-                                    // value={formData.experience}
-                                    // onChange={handleChange}
+                                    value={experience}
+                                    onChange={(e) => setExperience(e.target.value)}
                                     className="w-full border rounded-md text-gray-500  px-3 py-2 text-sm outline-none"
                                 >
                                     <option className='text-gray-600' value="1 year">1 Year</option>
@@ -88,8 +140,8 @@ const AddDoctor = () => {
                                 <input
                                     type="number"
                                     name="fees"
-                                    // value={formData.fees}
-                                    // onChange={handleChange}
+                                    value={fees}
+                                    onChange={(e) => setFees(e.target.value)}
                                     placeholder="Your fees"
                                     className="w-full border rounded-md px-3 py-2 text-sm outline-none"
                                 />
@@ -101,8 +153,8 @@ const AddDoctor = () => {
                                 <label className="block text-md text-gray-600 font-medium mb-1">Speciality</label>
                                 <select
                                     name="speciality"
-                                    // value={formData.speciality}
-                                    // onChange={handleChange}
+                                    value={speciality}
+                                    onChange={(e) => setSpeciality(e.target.value)}
                                     className="w-full border rounded-md px-3 text-gray-500 py-2 text-sm outline-none"
                                 >
                                     <option className='text-gray-600'>General physician</option>
@@ -118,8 +170,8 @@ const AddDoctor = () => {
                                 <input
                                     type="text"
                                     name="education"
-                                    // value={formData.education}
-                                    // onChange={handleChange}
+                                    value={degree}
+                                    onChange={(e) => setDegree(e.target.value)}
                                     placeholder="Education"
                                     className="w-full border rounded-md px-3 py-2 text-sm outline-none"
                                 />
@@ -130,16 +182,16 @@ const AddDoctor = () => {
                                 <input
                                     type="text"
                                     name="address1"
-                                    // value={formData.address1}
-                                    // onChange={handleChange}
+                                    value={address1}
+                                    onChange={(e) => setAddress1(e.target.value)}
                                     placeholder="Address 1"
                                     className="w-full border rounded-md px-3 py-2 text-sm mb-2 outline-none"
                                 />
                                 <input
                                     type="text"
                                     name="address2"
-                                    // value={formData.address2}
-                                    // onChange={handleChange}
+                                    value={address2}
+                                    onChange={(e) => setAddress2(e.target.value)}
                                     placeholder="Address 2"
                                     className="w-full border rounded-md px-3 py-2 text-sm outline-none"
                                 />
@@ -155,8 +207,8 @@ const AddDoctor = () => {
                         <label className="block text-md text-gray-500 font-medium mb-1">About me</label>
                         <textarea
                             name="about"
-                            // value={formData.about}
-                            // onChange={handleChange}
+                            value={about}
+                            onChange={(e) => setAbout(e.target.value)}
                             placeholder="Write about yourself"
                             rows="4"
 
