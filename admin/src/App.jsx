@@ -14,6 +14,7 @@ import AddDoctor from './pages/admin/AddDoctor';
 const App = () => {
 
   const { adminToken } = useContext(AdminContext)
+
   return adminToken ? (
     <div className='bg-[#F8F9FD]'>
       <ToastContainer />

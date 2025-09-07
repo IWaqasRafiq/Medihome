@@ -88,7 +88,7 @@ export const specialityData = [
 export const doctors = [
     {
         name: 'Dr. Richard James',
-        image: 'https://res.cloudinary.com/dd51khyg1/image/upload/v1757233011/doc1_wpf7jw.png',
+        image: doc1,
         speciality: 'General physician',
         degree: 'MBBS',
         experience: '4 Years',
